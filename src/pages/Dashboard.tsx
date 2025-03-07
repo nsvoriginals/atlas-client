@@ -1,9 +1,20 @@
 import { useState } from "react";
+import Button from "../components/Button";
+import userImage from '../../public/images/user.jpg'
+import userAtom from "../store/userStore";
+import { useAtomValue } from "jotai";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-
+  const user=useAtomValue(userAtom)
+  const navigate=useNavigate();
+ const handleSignout=()=>{
+  const success=localStorage.removeItem("token")
+  navigate('/')
+  
+ }
   return (
     <>
       <nav className="fixed mont top-0 z-50 w-full bg-white border-b border-gray-300 shadow-[16rem_12px_10px_-4px_rgba(0,0,0,0.1)]">
@@ -27,7 +38,7 @@ const Dashboard: React.FC = () => {
               <a href="#" className="flex ms-2 md:me-24">
                 <img src="images/fox_light_blue.png" className="h-8 me-3" alt="Logo" />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-black">
-                  LOGO
+                  Atlas
                 </span>
               </a>
             </div>
@@ -38,22 +49,22 @@ const Dashboard: React.FC = () => {
                   className="flex text-sm bg-gray-300 rounded-full focus:ring-2 focus:ring-gray-300"
                 >
                   <span className="sr-only">Open user menu</span>
-                  <img className="w-8 h-8 rounded-full" src="images/fox_light_blue.png" alt="User" />
+                  <img className="w-10 h-10 rounded-full" src="/images/user.jpg"  alt="Hellser" />
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute top-11 right-2 mt-5 w-48 bg-white rounded-lg drop-shadow-xl">
                     <div className="px-4 py-3">
-                      <p className="text-sm text-blue-700">Name</p>
-                      <p className="text-sm font-medium text-blue-700 truncate">NAME@gmail.com</p>
+                      <p className="text-sm text-blue-700">{user.username}</p>
+                      <p className="text-sm font-medium text-blue-700 truncate">{user.email}</p>
                     </div>
                     <ul className="py-1">
                       <li>
-                        <a href="#" className="block px-4 py-2 text-sm text-blue-700 hover:bg-gray-200 hover:text-black">
+                        <a onClick={()=>navigate('/')} href="#" className="block px-4 py-2 text-sm text-blue-700 hover:bg-gray-200 hover:text-black">
                           Home
                         </a>
                       </li>
                       <li>
-                        <a href="#" className="block px-4 py-2 text-sm text-blue-700 hover:bg-gray-200 hover:text-black">
+                        <a onClick={handleSignout} href="#" className="block px-4 py-2 text-sm text-blue-700 hover:bg-gray-200 hover:text-black">
                           Sign out
                         </a>
                       </li>
@@ -71,8 +82,9 @@ const Dashboard: React.FC = () => {
         } sm:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
         <div className="h-full px-3 pb-4 overflow-y-auto">
-          <ul className="space-y-2 font-medium">
-            {["TEMP - 1", "TEMP - 2", "Settings"].map((item, index) => (
+         <div className="flex flex-col justify-between items-center gap-72">
+         <ul className="space-y-2 font-medium">
+            {["Interview Assistant", "Resume Generator", "Settings"].map((item, index) => (
               <li key={index}>
                 <a href="#" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                   <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 22 21">
@@ -84,6 +96,11 @@ const Dashboard: React.FC = () => {
               </li>
             ))}
           </ul>
+
+        <div className=" w-full">
+          <Button text="Logout"></Button>
+        </div>
+         </div>
         </div>
       </aside>
       <div className="w-full h-full bg-blue-800">

@@ -50,15 +50,15 @@ function Landing() {
     <div className="bg-white font-satoshi relative">
       <Navbar />
 
-      <section className="bg-[#ffffff] bg-opacity-30 py-10 sm:py-16 lg:py-24">
+      <section className="bg-[#ffffff] bg-opacity-30 py-10 sm:py-16 lg:py-24 overflow-x-hidden">
         <div className="px-4 mx-auto max-w-8xl sm:px-6 lg:px-8 flex items-center">
           <div className="flex flex-col space-y-4 w-full">
-            <div className="reveal-container text-center">
+            <div className="reveal-container text-center mb-4">
               <p className="flap-reveal text-base font-semibold tracking-wider text-blue-600 uppercase text-center">
                 A Platform for your Future
               </p>
             </div>
-            <div className="text-center lg:mt-10">
+            <div className="text-center lg:mt-10 w-screen">
               <div className="reveal-container">
                 <h1 className="flap-reveal text-9xl font-bold text-black leading-none">
                   <span className="inline-flex items-center justify-center pl-8 pr-6 pt-1 pb-5 mr-4 text-blue-500">

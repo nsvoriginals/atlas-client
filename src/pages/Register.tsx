@@ -30,7 +30,7 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100 font-satoshi">
+    <div className="h-screen flex items-center justify-center bg-white font-satoshi">
       <div className="bg-white text-gray-700 rounded-2xl shadow-2xl max-w-4xl flex overflow-hidden w-full">
         {/* Left Side */}
         <div

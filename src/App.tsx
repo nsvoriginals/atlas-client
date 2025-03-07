@@ -3,12 +3,15 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Dashboard from "./pages/Dashboard"
 import Landing from "./pages/Landing"
+
+import { ResumeGenerator } from "./components/ResumeGenerator"
 export default function App(){
 
 
-  return <main>
+  return <main className="m-0 p-0 box-border flex items-center justify-center  ">
    <BrowserRouter>
    <Routes>
+    <Route path="/resume" element={<ResumeGenerator/>}></Route>
    <Route path="/"  element={<Landing/>} ></Route>
    <Route path="/user/profile"  element={<Dashboard/>} ></Route>
     <Route path="/auth/signup"  element={<Register/>} ></Route>

@@ -35,7 +35,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center bg-gray-100 font-satoshi">
+    <div className="h-screen w-screen flex items-center justify-center bg-white font-satoshi">
       <div className="bg-white text-gray-700 rounded-2xl shadow-lg w-full max-w-md p-8">
         <h2 className="text-3xl font-bold text-center text-gray-900">Login</h2>
         <p className="text-gray-500 text-center text-sm mt-2">
