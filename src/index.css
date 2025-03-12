@@ -6,3 +6,8 @@
     font-family: "Satoshi" ;
     src: url('./fonts/Satoshi.woff2')format('woff2');
 }
+
+@font-face {
+    font-family: Nue;
+    src: url('../public/Fonts/Nue.otf')format('opentype');
+}

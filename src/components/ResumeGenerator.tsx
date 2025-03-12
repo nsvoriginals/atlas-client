@@ -158,7 +158,7 @@ export const ResumeGenerator = () => {
               <strong>Phone:</strong> {parsedData.phone}
             </p>
             <p>
-              <strong>skillslls:</strong> {parsedData.skills.join(", ")}
+              <strong>Skills:</strong> {parsedData.skills.join(", ")}
             </p>
           </div>
         )}

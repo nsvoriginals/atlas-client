@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import '../App.css';
 import Navbar from '../components/Navbar';
+import { Desc } from '../components/Desc';
+import { Features } from '../components/Features';
+import { Footer } from '../components/Footer';
 
 function Landing() {
   const trailCount: number = 5;
@@ -50,7 +53,7 @@ function Landing() {
     <div className="bg-white font-satoshi relative">
       <Navbar />
 
-      <section className="bg-[#ffffff] bg-opacity-30 py-10 sm:py-16 lg:py-24 overflow-x-hidden">
+      <section className="bg-[#ffffff] bg-opacity-30 py-10 sm:py-16 lg:py-24 font-satoshi overflow-x-hidden">
         <div className="px-4 mx-auto max-w-8xl sm:px-6 lg:px-8 flex items-center">
           <div className="flex flex-col space-y-4 w-full">
             <div className="reveal-container text-center mb-4">
@@ -112,34 +115,11 @@ function Landing() {
           </div>
         </div>
       </section>
+      <Desc></Desc>
+      <Features></Features>
+      <Footer></Footer>
 
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          pointerEvents: 'none',
-          overflow: 'hidden',
-          zIndex: 9999,
-        }}
-      >
-        {Array.from({ length: trailCount }).map((_, i) => (
-          <div
-            key={i}
-            ref={(el) =>{ (dotRefs.current[i] = el)}}
-            style={{
-              position: 'absolute',
-              width: 12,
-              height: 12,
-              borderRadius: '10%',
-              backgroundColor: 'rgba(0, 0, 0, 0.3)',
-              transform: 'translate(-80%, -80%)',
-            }}
-          />
-        ))}
-      </div>
+     
     </div>
   );
 }
